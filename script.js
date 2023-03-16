@@ -1,10 +1,29 @@
 // 0 = rock 
 // 1 = paper
 // 2 = scissors
+let container = document.querySelector(".button-container")
 
-function getComputerChoice(max){
+container.addEventListener("click", getChoice)
+
+function getChoice(e){
+    if(e.target.id == "paper"){
+        playRound("paper")
+
+    }else if( e.target.id == "rock"){
+        playRound("rock")
+
+    }else if(e.target.id == "scissors"){
+       playRound("scissors")
+        
+    }
+}
+
+
+
+
+function getComputerChoice(){
     let computerChoice;
-    let choice = Math.floor(Math.random()* max);
+    let choice = Math.floor(Math.random()* 3);
     if (choice == 0){
         return computerChoice = "rock"
     } else if (choice == 1) {
@@ -14,16 +33,11 @@ function getComputerChoice(max){
     }
 }
 
-function getPlayerChoice(){
-    let choice = prompt("Rock, Paper, Scissors")
-    let playerChoice = choice.toLowerCase();
-    return playerChoice
-}
-
-function playRound(){
-    let playerChoice = getPlayerChoice()
-    let computerChoice = getComputerChoice(3)
+function playRound(choice){
+    let playerChoice = choice
+    let computerChoice = getComputerChoice()
     if (playerChoice.localeCompare(computerChoice) == 0){
+        console.log("draw")
         return("draw")
     } else if (playerChoice == "rock" && computerChoice == "scissors"){
         
@@ -52,6 +66,9 @@ function playRound(){
     }
 }
 
+
+
+/*
 function game(){
     let computerWin = 0
     let playerWin = 0
@@ -82,5 +99,5 @@ function game(){
         console.log("you draw!")
     }
 }
-
 game()
+*/
