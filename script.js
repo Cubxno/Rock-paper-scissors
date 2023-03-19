@@ -2,6 +2,8 @@
 // 1 = paper
 // 2 = scissors
 let container = document.querySelector(".button-container")
+let win = 0
+let loss = 0
 
 
 container.addEventListener("click", getChoice)
@@ -9,14 +11,29 @@ document.getElementById("score").textContent = "Result:"
 
 function getChoice(e){
     if(e.target.id == "paper"){
-        playRound("paper")
-
+       if(playRound("paper")== "you win"){
+        win =++win
+        document.getElementById("win").textContent ="Wins: " + win
+            }else if (playRound("paper")== "you lose"){
+        loss = ++loss
+        document.getElementById("loss").textContent = "loses: " + loss
+       }
     }else if( e.target.id == "rock"){
-        playRound("rock")
-
+        if(playRound("rock")== "you win"){
+            win = ++win
+            document.getElementById("win").textContent ="Wins: " + win
+           }else if (playRound("rock")== "you lose"){
+            loss = ++loss
+            document.getElementById("loss").textContent = "loses: " + loss
+           }
     }else if(e.target.id == "scissors"){
-       playRound("scissors")
-        
+        if(playRound("scissors")== "you win"){
+            win = ++win
+            document.getElementById("win").textContent ="Wins: " + win
+           }else if (playRound("scissors")== "you lose"){
+            loss = ++loss
+            document.getElementById("loss").textContent = "loses: " + loss
+           }
     }
 }
 
@@ -68,38 +85,3 @@ function playRound(choice){
     }
 }
 
-
-
-/*
-function game(){
-    let computerWin = 0
-    let playerWin = 0
-    let draw = 0
-    for (i=0; i<5; i++){
-        let round = playRound()
-       if (round.localeCompare('draw') == 0){
-        draw = draw + 1 
-        console.log("draw: " + draw )
-        console.log('win: ' + playerWin)
-        console.log('lose: ' + computerWin)
-       } else if (round.localeCompare("you win") == 0){
-        playerWin = playerWin + 1
-        console.log("draw: " + draw )
-        console.log('win: ' + playerWin)
-        console.log('lose: ' + computerWin)
-       } else {
-        computerWin = computerWin + 1
-        console.log("draw: " + draw )
-        console.log('win: ' + playerWin)
-        console.log('lose: ' + computerWin)
-       }
-    } if (computerWin > playerWin){
-        console.log("you lose!!!")
-    } else if (computerWin < playerWin){
-        console.log('you win!!!')
-    } else {
-        console.log("you draw!")
-    }
-}
-game()
-*/
