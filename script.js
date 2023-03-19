@@ -3,7 +3,9 @@
 // 2 = scissors
 let container = document.querySelector(".button-container")
 
+
 container.addEventListener("click", getChoice)
+document.getElementById("score").textContent = "Result:"
 
 function getChoice(e){
     if(e.target.id == "paper"){
@@ -37,31 +39,31 @@ function playRound(choice){
     let playerChoice = choice
     let computerChoice = getComputerChoice()
     if (playerChoice.localeCompare(computerChoice) == 0){
-        console.log("draw")
+        document.getElementById("score").textContent = "draw"
         return("draw")
     } else if (playerChoice == "rock" && computerChoice == "scissors"){
         
-        console.log("You win, Rock Beats Scissors")
+        document.getElementById("score").textContent = "You win, Rock Beats Scissors"
         return("you win")
     } else if (playerChoice == "rock" && computerChoice == "paper"){
         
-        console.log("You lose, Paper Beats Rock")
+        document.getElementById("score").textContent = "You lose, Paper Beats Rock"
         return("you lose")
     } else if (playerChoice == "paper" && computerChoice == "rock"){
         
-        console.log("You Win, Paper Beats Rock")
+        document.getElementById("score").textContent = "You Win, Paper Beats Rock"
         return("you win")
     } else if (playerChoice == "paper" && computerChoice == "scissors"){
         
-        console.log("You lose, Scissors Beats Paper")
+        document.getElementById("score").textContent = "You lose, Scissors Beat Paper"
         return("you lose")
     } else if (playerChoice == "scissors" && computerChoice == "paper"){
         
-        console.log("You Win, Scissors Beats Paper")
+        document.getElementById("score").textContent = "You Win, Scissors Beats Paper"
         return("you win")
     } else if (playerChoice == "scissors" && computerChoice == "rock"){
         
-        console.log("You lose, Rock Beats Scissors")
+        document.getElementById("score").textContent = "You lose, Rock Beats Scissors"
         return("you lose")
     }
 }
